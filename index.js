@@ -4,11 +4,11 @@ const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const WIKI_PASSWORD = process.env.WIKI_PASSWORD;
-const WIKI_ORIGIN = process.env.WIKI_ORIGIN;
+const WIKI_PASSWORD = process.env.WIKI_PASSWORD?.trim();
+const WIKI_ORIGIN = process.env.WIKI_ORIGIN?.trim();
 
 app.use(cors({
-  origin: [WIKI_ORIGIN, "http://localhost:8000", "http://127.0.0.1:8000"],
+  origin: [WIKI_ORIGIN, "http://localhost:8000", "http://localhost:8007", "http://127.0.0.1:8000", "http://127.0.0.1:8007"],
   methods: ["POST"],
   allowedHeaders: ["Content-Type", "X-Wiki-Key"]
 }));
