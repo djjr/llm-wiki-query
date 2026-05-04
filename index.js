@@ -9,7 +9,7 @@ const WIKI_PASSWORD = process.env.WIKI_PASSWORD?.trim();
 const WIKI_ORIGIN = process.env.WIKI_ORIGIN?.trim();
 const WIKI_EXPORT_URL = (process.env.WIKI_EXPORT_URL || "https://raw.githubusercontent.com/djjr/AIgovWiki/main/wiki/wiki-export.md").trim();
 
-const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY?.trim() });
 
 app.use(cors({
   origin: [WIKI_ORIGIN, "http://localhost:8000", "http://localhost:8007", "http://127.0.0.1:8000", "http://127.0.0.1:8007"],
